@@ -1,0 +1,88 @@
+.errorMessage {
+    color: #d44;
+    size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 1px;
+    padding: 10 0;
+    border-bottom-color: #DDD;
+    border-bottom-width: 1;
+}
+
+ActionBar {
+    background-color: #3f60f9;
+    /*#3C5AFD;*/
+}
+
+.action-image {
+    width: 40;
+    height: 40;
+    vertical-align: center;
+}
+
+.action-label {
+    color: white;
+    font-size: 24;
+    font-weight: bold;
+    vertical-align: center;
+}
+
+.icon {
+    font-family: "Material-Design-Iconic-Font";
+    font-size: 30;
+    color: white;
+    /* transform: scale(-1, 1); */
+    /*margin-right: 15px;*/
+    padding-right: 5;
+    padding-left: 5;
+}
+
+.iconMessage {
+    font-family: "Material-Design-Iconic-Font";
+}
+
+.retryButton {
+    font-size: 14;
+    padding: 0 1;
+    margin-left: 10px;
+    background-color: #3f60f9;
+    color: white;
+    border-radius: 6px;
+}
+
+.clearButton {
+    margin: 15px 1px;
+    font-size: 14;
+    font-weight: bold;
+    padding: 0 1;
+    background-color: #3f60f9;
+    color: white;
+    border-radius: 6px;
+}
+
+.title {
+    font-size: 20;
+    horizontal-align: center;
+    margin: 40px 0px;
+}
+
+.listEntry1 {
+    /*border-bottom-width: 1;
+    border-bottom-color: #EEE;*/
+    padding: 7 13;
+}
+
+.listEntry2 {
+    padding: 7 13;
+    background-color: #FBFBFF
+}
+
+.itemAgent {
+    font-weight: bold;
+    color: #3f60f9;
+}
+
+.itemTime {
+    color: #3f60f9;
+}

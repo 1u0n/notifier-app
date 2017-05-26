@@ -1,0 +1,66 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd"  xmlns:myXml="common/xml" navigatingTo="onNavigatingTo" loaded="onLoaded">
+
+    <Page.actionBar>
+        <ActionBar title="Configuration" style="padding-right:10">
+
+            <NavigationButton android.systemIcon="ic_menu_back" tap="goBack" style="color:#FFF"/>
+
+            <myXml:header/>
+
+            <ActionItem tap="save" android.position="actionBar" ios.position="right">
+                <Label class="icon" text="&#xf26b;"/>
+            </ActionItem>
+
+        </ActionBar>
+    </Page.actionBar>
+
+    <StackLayout orientation="vertical">
+
+        <TabView>
+        <TabView.items>
+            <TabViewItem title="User">
+            <TabViewItem.view>
+                <ScrollView orientation="vertical">
+                    <StackLayout>
+                        <StackLayout id="layout1" orientation="vertical" width="70%">
+                            <Label text="User name" style="margin-top:45px"/>
+                            <TextField id="username" text="{{ userName }}" hint="" autocorrect="false" autocapitalizationType="none"/>
+                            <Label text="Password" style="margin-top:40px"/>
+                            <TextField id="password" text="{{ password }}" hint="" autocorrect="false" autocapitalizationType="none"/>
+                            <StackLayout orientation="horizontal" marginTop="55">
+                                <Label text="Alert me with notifications " paddingTop="8" style="font-size:16"/>
+                                <Switch  checked="{{ showNotifications }}" paddingBottom="5"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </ScrollView>
+            </TabViewItem.view>
+            </TabViewItem>
+            <TabViewItem title="Server">
+            <TabViewItem.view>
+                <ScrollView orientation="vertical">
+                    <StackLayout>
+                        <StackLayout id="layout2" orientation="vertical" width="70%">
+                            <Label text="Server IP" style="margin-top:45px"/>
+                            <TextField id="ip" text="{{ ip }}" hint="" autocorrect="false" autocapitalizationType="none"/>
+                            <Label text="Server port" style="margin-top:40px"/>
+                            <TextField id="port" text="{{ port }}" hint="" autocorrect="false" autocapitalizationType="none" horizontalAlignment="left" width="40%" keyboardType="number"/>
+                            <Label text="Check server every" style="margin-top:40px"/>
+                            <StackLayout orientation="horizontal" >
+                                <TextField id="frequency" text="{{ frequency }}" autocorrect="false" autocapitalizationType="none" hint="" width="40%" keyboardType="number"/>
+                                <Label text="minutes" verticalAlignment="bottom" style="padding:0 0 5 0"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </ScrollView>
+            </TabViewItem.view>
+            </TabViewItem>
+        </TabView.items>
+        </TabView>
+
+        
+
+    </StackLayout>
+
+
+</Page>

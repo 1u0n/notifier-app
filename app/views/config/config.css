@@ -1,0 +1,41 @@
+.noconnection {
+    visibility: collapse;
+    border-color: #aaa;
+    border-width: 1px;
+    border-radius: 6px;
+    color: #d44;
+    size: 16px;
+    text-align: center;
+}
+
+ActionBar {
+    background-color: #3f60f9;
+    /*#3C5AFD;*/
+}
+
+.action-image {
+    width: 40;
+    height: 40;
+    vertical-align: center;
+}
+
+.action-label {
+    color: white;
+    font-size: 24;
+    font-weight: bold;
+    vertical-align: center;
+}
+
+.buttonSave {
+    margin-top: 45px;
+    font-size: 22;
+    padding: 5;
+}
+
+.icon {
+    font-family: "Material-Design-Iconic-Font";
+    font-size: 30;
+    color: white;
+    padding-right: 5;
+    padding-left: 5;
+}

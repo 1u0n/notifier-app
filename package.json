@@ -1,0 +1,28 @@
+{
+    "name": "notifier-app",
+    "author": "Juan López",
+    "license": "MIT",
+    "version": "0.1.0",
+    "nativescript": {
+        "id": "es.jlop.NotifierApp",
+        "tns-android": {
+            "version": "2.5.0"
+        }
+    },
+    "dependencies": {
+        "nativescript-android-utils": "^1.0.2",
+        "nativescript-local-notifications": "^1.2.1",
+        "nativescript-sound": "^1.0.4",
+        "nativescript-sse": "^2.0.0",
+        "nativescript-theme-core": "~1.0.2",
+        "nativescript-toast": "^1.4.5",
+        "tns-core-modules": "^2.5.0"
+    },
+    "devDependencies": {
+        "babel-traverse": "6.4.5",
+        "babel-types": "6.4.5",
+        "babylon": "6.4.5",
+        "lazy": "1.0.11",
+        "nativescript": "^2.5.2"
+    }
+}
