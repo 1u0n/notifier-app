@@ -1,4 +1,4 @@
-<Page xmlns="http://schemas.nativescript.org/tns.xsd" xmlns:myXml="common/xml" navigatingTo="onNavigatingTo">
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" xmlns:myXml="common/xml" navigatingTo="onNavigatingTo" loaded="onLoaded">
 
   <Page.actionBar>
       <ActionBar title="Notifier" style="padding-right:12">
@@ -21,7 +21,7 @@
     <Label class="errorMessage" textWrap="true" text="No internet connection available" horizontalAlignment="center" minWidth="240" visibility="{{ isThereConnectivity , isThereConnectivity ? 'collapse':'visible' }}"/>
     <StackLayout class="errorMessage" orientation="horizontal" horizontalAlignment="center" minWidth="300" width="96%" visibility="{{ connectedToServer , (!connectedToServer && isThereConnectivity && configCompleted) ? 'visible':'collapse' }}">
         <Label text="Currently not connected to server" horizontalAlignment="center" verticalAlignment="middle"/>
-        <Button class="retryButton" text="Retry" horizontalAlignment="center" verticalAlignment="middle" minHeight="0" minWidth="0" tap="retryConnection"/>
+        <Button id="retryButton" class="retryButton" text="Retry" horizontalAlignment="center" verticalAlignment="middle" tap="retryConnection"/>
     </StackLayout>
     <Label class="title" text="No messages to show" visibility="{{ messages.length , (!messages.length && connectedToServer && isThereConnectivity && configCompleted)? 'visible' : 'collapse' }}" />
 
@@ -31,14 +31,14 @@
         <repeater id="repeater" items="{{ messages }}">
             <repeater.itemTemplate>
                 <StackLayout class="{{ odd, odd ? 'listEntry1':'listEntry2' }}">
-                    <Label class="itemAgent" text="{{ agent }}" />
+                    <Label class="itemAgent" text="{{ agent }}" textWrap="true" width="100%"/>
                     <Label class="itemTime" text="{{ time }}" />
-                    <Label class="itemText" text="{{ text }}" />
+                    <Label class="itemText" text="{{ text }}" textWrap="true" width="100%"/>
                 </StackLayout>
             </repeater.itemTemplate>
         </repeater>
 
-        <Button class="clearButton" text="Clear all" horizontalAlignment="center" tap="clearMessages" visibility="{{ messages.length , messages.length? 'visible' : 'collapse' }}"/>
+        <Button id="clearButton" class="clearButton" text="Clear all" horizontalAlignment="center" tap="clearMessages" visibility="{{ messages.length , messages.length? 'visible' : 'collapse' }}"/>
 
         </StackLayout>
     </ScrollView>

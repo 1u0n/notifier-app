@@ -1,6 +1,7 @@
 var applicationSettings = require("application-settings");
 
 function setupAlarm(context) {
+
     var alarmIntent = getIntent(context);
     var alarmManager = context.getSystemService(android.content.Context.ALARM_SERVICE);
     alarmManager.setInexactRepeating(android.app.AlarmManager.RTC,

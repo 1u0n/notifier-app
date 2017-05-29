@@ -9,8 +9,6 @@ var messagesFile;
 
 exports.createViewModel = () => {
 
-    console.log("Vamos a crear el modelo");
-
     viewModel.messages = new ObservableArray([]);
     viewModel.configCompleted = false;
     viewModel.connectedToServer = false;
@@ -20,13 +18,10 @@ exports.createViewModel = () => {
     messagesFile = fs.File.fromPath(path);
     messagesFile.readText()
         .then((content) => {
-            console.log("CONTENT READ: " + content);
             if (content) {
                 viewModel.messages.push(content.split("\n"));
-                console.log("Messages observable tiene: " + viewModel.messages.length + " elementos");
                 var length = viewModel.messages.length;
                 for (var i = 0; i < length; i++) {
-                    console.log("Read this line: " + viewModel.messages.getItem(i));
                     var obj = JSON.parse(viewModel.messages.getItem(i));
                     obj.odd = i % 2 == 0 ? false : true;
                     viewModel.messages.setItem(i, obj);
@@ -65,11 +60,9 @@ exports.createViewModel = () => {
 
     viewModel.clearMessages = function() {
         messagesFile.writeText("");
-        console.log("Antes de clear hay: " + this.messages.length);
         var length = this.messages.length;
         for (var i = 0; i < length; i++)
             this.messages.pop();
-        console.log("Despues de clear hay: " + this.messages.length);
     };
 
 

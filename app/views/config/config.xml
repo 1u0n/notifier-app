@@ -1,4 +1,4 @@
-<Page xmlns="http://schemas.nativescript.org/tns.xsd"  xmlns:myXml="common/xml" navigatingTo="onNavigatingTo" loaded="onLoaded">
+<Page xmlns="http://schemas.nativescript.org/tns.xsd"  xmlns:myXml="common/xml" navigatingTo="onNavigatingTo">
 
     <Page.actionBar>
         <ActionBar title="Configuration" style="padding-right:10">

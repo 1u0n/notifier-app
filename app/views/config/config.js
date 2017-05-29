@@ -6,17 +6,11 @@ var Toast = require("nativescript-toast");
 var alarm = require("~/alarm-setup");
 
 
-var page;
 var configData;
 
 
-exports.onNavigatingTo = function() {
-    console.log("PAGE onNavigatingTo");
-};
 
-exports.onLoaded = (args) => {
-    console.log("PAGE onLoaded");
-
+exports.onNavigatingTo = (args) => {
     configData = new Observable();
     configData.userName = applicationSettings.getString("user.name", "");
     configData.password = applicationSettings.getString("user.password", "");
@@ -25,16 +19,20 @@ exports.onLoaded = (args) => {
     configData.port = applicationSettings.getString("server.port", "80");
     configData.frequency = applicationSettings.getString("server.frequency", "10");
 
-    page = args.object;
-    page.bindingContext = configData;
+    args.object.bindingContext = configData;
 }
 
-exports.save = function() {
 
-    if (configData.showNotifications && !applicationSettings.getBoolean("user.showNotifications", true))
+exports.save = function() {
+    if (configData.showNotifications && (!applicationSettings.getBoolean("user.showNotifications", true) || configData.frequency != applicationSettings.getString("server.frequency", "10")))
         alarm.setupAlarm(utils.ad.getApplicationContext());
     else if (!configData.showNotifications && applicationSettings.getBoolean("user.showNotifications", true))
         alarm.cancelAlarm(utils.ad.getApplicationContext());
+
+    if (applicationSettings.getString("server.ip", "") != configData.ip || applicationSettings.getString("server.port", "80") != configData.port ||
+        applicationSettings.getString("user.password", "") != configData.password || applicationSettings.getString("user.name", "") != configData.userName) {
+        applicationSettings.setBoolean("config.changed", true);
+    }
 
     applicationSettings.setString("user.name", configData.userName);
     applicationSettings.setString("user.password", configData.password);
@@ -46,6 +44,7 @@ exports.save = function() {
     Toast.makeText(" Changes saved ").show();
     frameModule.topmost().goBack();
 };
+
 
 exports.goBack = function() {
     frameModule.topmost().goBack();

@@ -18,28 +18,21 @@ com.pip3r4o.android.app.IntentService.extend("com.tns.notifications.BackgroundSe
 function doService() {
 
     var text;
-    console.log("Starting background service");
 
     //if user doesn't want notifications, there's no reason to fetch them
     if (!applicationSettings.getBoolean("user.showNotifications", true))
         return;
 
     //if app is running and on foreground, no need to do anything
-    if (applicationSettings.getString("app.state") == "running") {
-        console.log("Our app is on foreground, no need to do anything here");
+    if (applicationSettings.getString("app.state") == "running")
         return;
-    }
 
     var connectionType = connectivity.getConnectionType();
-    if (connectionType == connectivity.connectionType.none) {
-        console.log("No connectivity, nothing done in the service");
+    if (connectionType == connectivity.connectionType.none)
         return;
-    }
 
-    if (applicationSettings.getString("server.ip", "") === "" || applicationSettings.getString("user.password", "") === "" || applicationSettings.getString("user.name", "") === "") {
-        console.log("Not configured yet, exiting background service");
+    if (applicationSettings.getString("server.ip", "") === "" || applicationSettings.getString("user.password", "") === "" || applicationSettings.getString("user.name", "") === "")
         return;
-    }
 
     http.request({
         url: "http://" + applicationSettings.getString("server.ip") + ":" + applicationSettings.getString("server.port", "80") + "/sse/check",
@@ -48,10 +41,9 @@ function doService() {
         content: JSON.stringify({ user: "myUserId", pass: "myPassword" })
     }).then(function(response) {
         respObj = response.content.toJSON();
-        console.log("Got a result from the server: " + response.content);
         if (respObj.newNotifications > 0)
             notifier.createNotification("Notifier", "you've got " + respObj.newNotifications + " new notifications!");
     }, function(e) {
-        console.log("Error occurred while checking the server for updates: " + e);
+        console.error("Error occurred while checking the server for updates: " + e);
     });
 }

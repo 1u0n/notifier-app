@@ -5,7 +5,7 @@
     text-align: center;
     margin-top: 5px;
     margin-bottom: 1px;
-    padding: 10 0;
+    padding: 15 0;
     border-bottom-color: #DDD;
     border-bottom-width: 1;
 }
@@ -52,7 +52,7 @@ ActionBar {
 }
 
 .clearButton {
-    margin: 15px 1px;
+    margin: 20px 1px 15px 1px;
     font-size: 14;
     font-weight: bold;
     padding: 0 1;
@@ -70,11 +70,11 @@ ActionBar {
 .listEntry1 {
     /*border-bottom-width: 1;
     border-bottom-color: #EEE;*/
-    padding: 7 13;
+    padding: 10 13;
 }
 
 .listEntry2 {
-    padding: 7 13;
+    padding: 10 13;
     background-color: #FBFBFF
 }
 
